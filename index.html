@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SignalOS</title>
+    <style>
+      :root { font-family: Inter, system-ui, -apple-system, sans-serif; color-scheme: light; }
+      body { margin: 0; background: #f4f6f8; color: #17212b; }
+      .shell { display: grid; grid-template-columns: 220px 1fr; min-height: 100vh; }
+      .sidebar { background: #111827; color: #e5e7eb; padding: 24px; }
+      .sidebar h1 { font-size: 1.1rem; margin: 0 0 18px; }
+      .sidebar ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+      .content { padding: 28px; }
+      .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit,minmax(230px,1fr)); }
+      .card { background: #fff; border-radius: 12px; padding: 18px; box-shadow: 0 1px 2px rgba(0,0,0,.07); }
+      .metric { font-size: 1.6rem; margin: 6px 0 0; font-weight: 600; }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <h1>SignalOS</h1>
+        <ul>
+          <li>Agency Overview</li>
+          <li>Client Dashboard</li>
+          <li>Experiments</li>
+          <li>Recommendations</li>
+          <li>Reports</li>
+        </ul>
+      </aside>
+      <main class="content">
+        <h2>Client Snapshot: Client A</h2>
+        <p>Quick view for what is working, what is not, and what to do next.</p>
+        <section class="grid">
+          <article class="card"><strong>Revenue (7d)</strong><p class="metric">$42,800</p></article>
+          <article class="card"><strong>Top Working Angle</strong><p class="metric">Bundle + urgency</p></article>
+          <article class="card"><strong>Underperforming</strong><p class="metric">Image-only winback</p></article>
+          <article class="card"><strong>Top Next Action</strong><p class="metric">Test text-only variant</p></article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

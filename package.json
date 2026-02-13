@@ -1,0 +1,11 @@
+{
+  "name": "signalos",
+  "version": "0.1.0",
+  "private": true,
+  "description": "SignalOS foundation scaffold",
+  "scripts": {
+    "start": "python3 -m http.server 4173",
+    "test": "node --test",
+    "lint": "node scripts/lint.js"
+  }
+}
