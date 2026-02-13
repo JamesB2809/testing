@@ -1,0 +1,46 @@
+SignalOS Progress Log
+=====================
+
+2026-02-12
+- Created initial planning artifacts:
+  - PRD.md (v1 product requirements, scope, architecture, acceptance criteria)
+  - tasks.md (phase-based build checklist)
+  - progress.txt (this running log)
+- Current phase: Phase 0 — Foundation
+- Current status: Planning complete, ready to initialize application scaffold
+
+- Implemented baseline runnable app shell (`index.html`) to establish the dashboard structure.
+- Added modular recommendation ranking logic in `src/recommendationEngine.js` with tests.
+- Added baseline CI workflow and local lint/test scripts.
+- Current status: Phase 0 foundation scaffold implemented (non-Next.js fallback due package registry access policy).
+
+- Configured Supabase environment contract via `.env.example` and `src/config.js`.
+- Added Supabase REST request builder in `src/supabaseClient.js` for anon/service-role contexts.
+- Added test coverage for env validation and request construction (`tests/config.test.js`, `tests/supabaseClient.test.js`).
+- Current status: Phase 0 item 'Supabase project/env handling' completed and validated.
+
+- Implemented auth request helpers in `src/auth.js` for magic link and Google OAuth flows.
+- Added redirect normalization helper and strict email validation for magic link initiation.
+- Added auth tests in `tests/auth.test.js` to verify payload/url generation and validation behavior.
+- Current status: Phase 1 auth implementation step completed and green.
+
+- Defined canonical roles (Owner/Manager/Contributor) and implemented workspace/client RBAC route guards in `src/accessControl.js`.
+- Added role-protected route test coverage in `tests/accessControl.test.js` including unknown route/role and membership enforcement cases.
+- Current status: Phase 1 roles + RBAC + route guard testing completed and green.
+
+- Added core schema migration `db/migrations/0001_core_schema.sql` for workspaces/clients/campaigns/flows/variants/segments/templates/metrics/audit logs.
+- Added performance indexes for key lookup paths and uniqueness constraints for dedupe-safe ingestion.
+- Added schema validation utility (`src/schemaValidator.js`) and tests (`tests/schemaValidator.test.js`) for migration integrity checks.
+- Current status: Phase 2 core schema + indexes + audit log table + schema tests completed and green.
+
+- Implemented Klaviyo OAuth credential flow helpers in `src/klaviyoAuth.js` (authorize URL + token exchange request + env validation).
+- Added Klaviyo env contract to `.env.example` and covered flow behavior with `tests/klaviyoAuth.test.js`.
+- Current status: Phase 3 Klaviyo OAuth/API credential flow completed and green.
+
+- Implemented `src/klaviyoConnector.js` request builders for campaigns, flow messages, segments, templates, and variants endpoints.
+- Added normalized response mapping helper for list payloads plus test coverage in `tests/klaviyoConnector.test.js`.
+- Current status: Phase 3 connector service step completed and green.
+
+- Implemented `src/klaviyoBackfill.js` with a 12-month backfill window planner and per-entity historical job request generation.
+- Added tests in `tests/klaviyoBackfill.test.js` for date window defaults, token validation, and required entity job coverage.
+- Current status: Phase 3 historical backfill planning step completed and green.
